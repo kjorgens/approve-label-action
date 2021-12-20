@@ -8701,7 +8701,7 @@ async function createPrComment(owner, repo, prNum, commentBodyText) {
     // console.log(payload);
     console.log(github.context.payload.action);
     // console.log(payload.user);
-    console.log(github.context.label.name);
+    console.log(github.context.payload.label.name);
 
     let repoName;
     let prNumber;
