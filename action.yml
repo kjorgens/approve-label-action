@@ -1,0 +1,17 @@
+name: 'approval by labels'
+description: 'approvals triggered by labels'
+inputs:
+  github-token:
+    description: github access token
+    required: false
+    default: ${{ github.token }}
+  pr-number:
+    description: pull request number
+    required: false
+  valid-approval-teams:
+    description: valid approval teams
+    required: true
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
