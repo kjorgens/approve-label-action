@@ -254,7 +254,7 @@ async function createPrComment(owner, repo, prNum, commentBodyText) {
 (async () => {
   try {
     const payload = JSON.stringify(github.context.payload, undefined, 2);
-    // console.log(payload);
+    console.log(payload);
     console.log(github.context.payload.action);
     console.log(github.context.payload.user.name);
     console.log(github.context.payload.label.name);

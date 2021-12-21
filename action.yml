@@ -11,6 +11,9 @@ inputs:
   valid-approval-teams:
     description: valid approval teams
     required: true
+  valid-label-names:
+    description: valid label names
+    required: false
 
 runs:
   using: 'node12'
