@@ -5,15 +5,12 @@ inputs:
     description: github access token
     required: false
     default: ${{ github.token }}
-  pr-number:
-    description: pull request number
-    required: false
   valid-approval-teams:
     description: valid approval teams
     required: true
-  valid-label-names:
-    description: valid label names
-    required: false
+  expected-label-name:
+    description: expected label name
+    required: true
 
 runs:
   using: 'node12'
