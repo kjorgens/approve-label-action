@@ -41,7 +41,7 @@ async function getTeamArray(teamName, owner, sender) {
   try {
     const sender = github.context.payload.sender.login;
     const expectedLabel = 'Label Action';
-    const org = github.context.payload.organization.login;
+    const org = core.getInput('organization') || github.context.payload.organization.login;
     const teams = core.getInput('valid-approval-teams');
     const teamSlugs = teams.split(',');
     let validApprover = false;

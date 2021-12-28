@@ -11,6 +11,9 @@ inputs:
   expected-label-name:
     description: expected label name
     required: true
+  organization:
+    description: organization name where the repo resides
+    required: false
 
 runs:
   using: 'node12'
