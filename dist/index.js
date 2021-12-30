@@ -8484,14 +8484,17 @@ async function getTeamArray(teamName, owner, sender) {
 (async () => {
   try {
     const sender = github.context.payload.sender.login;
-    const expectedLabel = 'Label Action';
+    const expectedLabel = core.getInput('expected-label-name');
     const org = core.getInput('organization') || github.context.payload.organization.login;
     const teams = core.getInput('valid-approval-teams');
     const teamSlugs = teams.split(',');
+    const cleanSlugs = teamSlugs.map((slug) => {
+      return slug.trim().replace(' ','-').replace('/','-');
+    });
     let validApprover = false;
-    await Promise.all(teamSlugs.map(async (team) => {
+    await Promise.all(cleanSlugs.map(async (team) => {
       try {
-        const approvers = await getTeamArray(team.trim(), org, sender);
+        const approvers = await getTeamArray(team, org, sender);
         if (approvers) {
           validApprover = true;
         }
